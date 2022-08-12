@@ -38,12 +38,12 @@ end
 def selects_oldest_bear_and_returns_name_and_age
   <<-SQL
   SELECT
+    bears.name,
     bears.age
-    bear.name
   FROM
     bears
-  WHERE
-  bears.age = MAX(bears.age)
+  ORDER BY 
+  age DESC LIMIT 1
 SQL
 end
 
@@ -54,7 +54,7 @@ def select_youngest_bear_and_returns_name_and_age
     bears.age
   FROM
     bears
-  WHERE
-  bears.age =  MIN(bears.age)
+  ORDER BY
+  age ASC Limit 1
 SQL
 end
